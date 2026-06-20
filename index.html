@@ -3,19 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>访问统计</title>
+<title>In Memory of Oliver Tree | 缅怀奥利弗·特里</title>
 <style>
-*{margin:0;padding:0;font-family:system-ui}
-body{display:flex;justify-content:center;align-items:center;height:100vh;background:#f0f2f5;font-size:32px;color:#222}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", Georgia, serif;
+}
+body{
+  background: #07080a;
+  color: #e0e0e0;
+  line-height: 2.2;
+  padding: 30px 20px 60px;
+}
+.container{
+  max-width: 750px;
+  margin: 0 auto;
+}
+/* emoji动画区域 */
+.anim-box{
+  height: 180px;
+  position: relative;
+  border-bottom: 1px solid #292929;
+  border-top: 1px solid #292929;
+  margin: 20px 0 40px;
+  overflow: hidden;
+}
+.heli1{
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  animation: moveRight 6s linear forwards;
+}
+.heli2{
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  animation: moveLeft 6s linear forwards;
+}
+.explode{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 60px;
+  opacity: 0;
+  animation: showExplode 6s linear forwards;
+}
+/* 两架直升机相向移动 */
+@keyframes moveRight {
+  0%{left:10%}
+  100%{left:50%}
+}
+@keyframes moveLeft {
+  0%{right:10%}
+  100%{right:50%}
+}
+/* 相撞瞬间显示爆炸 */
+@keyframes showExplode {
+  0%,80%{opacity:0;pointer-events:none}
+  85%{opacity:1}
+  100%{opacity:1}
+}
+.main-title{
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.sub-desc{
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+.cn-text{
+  font-size:17px;
+  color:#d8d8d8;
+  text-indent:2em;
+  margin-bottom:20px;
+}
+.en-text{
+  font-size:16px;
+  color:#bbbbbb;
+  font-style:italic;
+  margin-bottom:20px;
+}
+.rip-end{
+  text-align:center;
+  font-size:24px;
+  color:#f2d080;
+  margin-top:50px;
+  letter-spacing:2px;
+}
+.visit-count{
+  text-align:center;
+  margin-top:30px;
+  color:#777;
+  font-size:15px;
+}
+.audio-wrap{
+  text-align:center;margin:10px 0;
+}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/visitor-count-api@1.0.0/visitor.js"></script>
+<!-- 不蒜子访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body>
-<div>累计访问：<span id="vNum">0</span></div>
-<script>
-getVisitorCount('visit-count-my',num=>{
-  document.getElementById('vNum').textContent=num
-})
-</script>
+<div class="container">
+  <h1 class="main-title">In Memory of Oliver Tree<br>缅怀 奥利弗·特里</h1>
+  <div class="sub-desc">Music lives forever, memories remain</div>
+
+  <!-- 音乐播放器（可见版，可手动播放暂停） -->
+  <div class="audio-wrap">
+    <audio controls loop>
+      <source src="Life-Goes-On.mp3" type="audio/mpeg">
+    
+  </div>
+
+  <!-- emoji相撞动画区 -->
+  <div class="anim-box">
+    <div class="heli1">🚁</div>
+    <div class="heli2">🚁</div>
+    <div class="explode">💥</div>
+  </div>
+
+  <p class="cn-text">奥利弗·特里凭借极具辨识度的另类流行风格与真诚治愈的创作，用一首首独特的旋律陪伴无数听众走过孤独与迷茫的时光，他坚持自我的音乐态度、自由鲜活的创作灵魂深深留在歌迷心中。原本还有诸多音乐计划与巡演期待，世事无常，一切美好期许骤然止步，无数喜爱他的听众为之惋惜怀念。</p>
+  <p class="en-text">Oliver Tree built a unique alternative pop style and created sincere and healing music that accompanied countless listeners through lonely and confused days. He stuck to his original musical aspiration and left precious musical memories for fans around the world. All future music plans and tour expectations came to an abrupt end due to an unexpected accident, leaving endless regret among his audience.</p>
+  <p class="cn-text">他的歌声不会随离别消散，每一段旋律依旧会在往后的岁月里继续温暖、治愈每一个聆听者，这份由音乐联结的思念长久留存于心。我们铭记他的作品，留存这份温柔与热爱，静静缅怀这位独特的音乐人。</p>
+  <p class="en-text">His songs will never fade away with parting; every melody will keep warming and healing listeners in the years ahead. We remember his works, keep this warmth and love in our hearts, and cherish the memory of this special musician forever.</p>
+
+  <div class="rip-end">RIP<br>安息</div>
+  <div class="visit-count">缅怀访问累计：<span id="busuanzi_value_site_pv">0</span></div>
+</div>
 </body>
 </html>
